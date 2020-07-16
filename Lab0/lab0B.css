@@ -1,0 +1,106 @@
+body {
+  background-image: linear-gradient(to right, #a8caba 0%, #5d4157 100%);
+  font-family: "Merienda One", cursive;
+  color: #654062;
+}
+h1 {
+  position: relative;
+
+  margin-left: 60%;
+}
+h2 {
+  text-align: left;
+  margin-left: 50px;
+  margin-top: 60px;
+}
+.img {
+  border: 1px solid purple;
+  float: right;
+  width: 350px;
+  height: 200px;
+  margin-right: 100px;
+  margin-top: 16px;
+}
+
+.container {
+  position: relative;
+}
+.main {
+  background-color: #ffdde1;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.header {
+  background-image: linear-gradient(
+    to top,
+    #dad4ec 0%,
+    #dad4ec 1%,
+    #f3e7e9 100%
+  );
+  border: 1px solid purple;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin: 30px;
+}
+.p {
+  text-align: left;
+  padding-top: 20px;
+  font-size: large;
+  left: 30%;
+  margin-right: 35%;
+  list-style-position: inside;
+  position: absolute;
+}
+.left {
+  background-image: linear-gradient(
+    to top,
+    #dad4ec 0%,
+    #dad4ec 1%,
+    #f3e7e9 100%
+  );
+  border: 1px solid purple;
+  text-align: left;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  padding-right: 5%;
+  padding-bottom: 1%;
+  list-style-position: inside;
+  position: absolute;
+}
+.links:hover {
+  color: red;
+}
+.tpRt1,
+.btRt2 {
+  background-image: linear-gradient(
+    to top,
+    #dad4ec 0%,
+    #dad4ec 1%,
+    #f3e7e9 100%
+  );
+  border: 1px solid purple;
+  text-align: right;
+  margin-bottom: 30px;
+  margin-left: 25%;
+  margin-right: 30px;
+  list-style-position: inside;
+  padding-bottom: 350px;
+}
+.grace {
+  width: 120px;
+  height: 120px;
+  list-style-position: inside;
+}
+.ending {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: fit-content;
+}
+.name {
+  margin-bottom: 30px;
+}
