@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab1 🐱‍👤</title>
+    <style>
+      body {
+        background-color: #fffaf0;
+      }
+      .failMessage {
+        color: red;
+        font-size: 30px;
+      }
+      .SuccessMessage {
+        color: slateblue;
+        font-size: 40px;
+      }
+      #container {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        width: 830px;
+        border-color: tomato;
+        border-style: inset;
+      }
+    </style>
+    <script>
+      var username;
+      var stdID;
+      var textArea;
+      var textField;
+      var button;
+      var wordCount;
+      var outputDiv;
+      var pwOutPut;
+      var studentID;
+      var userNameOutPut;
+
+      function submitButton() {
+        let textStr = textField.value;
+        let userNameStr = username.value;
+        let stdIdStr = stdID.value;
+        let upperCaseIncluded = false;
+        let lowerCaseIncluded = false;
+        let numIncluded = false;
+        let userNameValidUpper = false;
+        let userNameValidLower = false;
+        let userNameValidSpChar = false;
+        let userNameValidNum = false;
+        let stdIDValidNums = false;
+        let stdIDValidUpperChar = false;
+        let stdIDValidLowerChar = false;
+        let stdIDValidSpChar = false;
+        let conditionOneMet = false;
+        let conditionTwoMet = false;
+        let conditionThreeMet = false;
+        let finalOutPut;
+        let output;
+        let studentIdOutPut;
+        let usrName;
+        let regexUpperChar = /[A-Z]/;
+        let regexLowerChar = /[a-z]/;
+        let regexNum = /[0-9]/;
+        let regexSpChar = /[\W]/;
+
+        userNameValidUpper = regexUpperChar.test(userNameStr);
+        userNameValidLower = regexLowerChar.test(userNameStr);
+        userNameValidNum = regexNum.test(userNameStr);
+        userNameValidSpChar = regexSpChar.test(userNameStr);
+
+        if (userNameValidNum) {
+          username = "Invalid User Name: No numbers or special charaters.";
+        } else if (userNameValidSpChar) {
+          username = "Invalid User Name: No numbers or special charaters.";
+        } else {
+          username = " ";
+          conditionOneMet = true;
+        }
+        userNameOutPut.innerHTML = username;
+
+        upperCaseIncluded = regexUpperChar.test(textStr);
+        lowerCaseIncluded = regexLowerChar.test(textStr);
+        numIncluded = regexNum.test(textStr);
+
+        if (upperCaseIncluded && numIncluded && lowerCaseIncluded) {
+          output = " ";
+          conditionTwoMet = true;
+        } else {
+          output =
+            "Invalid Password: You did not include one of the requirements.";
+        }
+        pwOutPut.innerHTML = output;
+
+        stdIDValidNums = regexNum.test(stdIdStr);
+        stdIDValidUpperChar = regexUpperChar.test(stdIdStr);
+        stdIDValidLowerChar = regexLowerChar.test(stdIdStr);
+        stdIDValidSpChar = regexSpChar.test(stdIdStr);
+
+        if (stdIDValidUpperChar) {
+          studentIdOutPut =
+            "Invalid Student ID: No numbers or special charaters.";
+        } else if (stdIDValidLowerChar) {
+          studentIdOutPut =
+            "Invalid Student ID: No numbers or special charaters.";
+        } else if (stdIDValidSpChar) {
+          studentIdOutPut =
+            "Invalid Student ID: No numbers or special charaters.";
+        } else {
+          studentIdOutPut = " ";
+          conditionThreeMet = true;
+        }
+        studentID.innerHTML = studentIdOutPut;
+
+        if (conditionOneMet && conditionTwoMet && conditionThreeMet) {
+          finalOutPut = "SUCCESS!";
+          //this next line of code I got off stackOverflow
+          //https://stackoverflow.com/questions/25713190/change-div-colour-with-js-if-else-conditiond/25713321
+          document.getElementById("container").style.backgroundColor =
+            "#FFFAF0";
+        } else {
+          finalOutPut = " ";
+          //this next line of code I got off stackOverflow
+          //https://stackoverflow.com/questions/25713190/change-div-colour-with-js-if-else-conditiond/25713321
+          document.getElementById("container").style.backgroundColor =
+            "#8FBC8F";
+        }
+        outputDiv.innerHTML = finalOutPut;
+      }
+
+      function keyPressed(event) {
+        let currentContents = textArea.value;
+        let token = currentContents.split(" ");
+        let howManyTokens;
+
+        if (token.length == 25) {
+          //this next line of code i got off:
+          //https://www.w3schools.com/jsref/prop_textarea_disabled.asp
+          document.getElementById("textArea").disabled = true;
+          howManyTokens = 25;
+        } else {
+          howManyTokens = token.length;
+        }
+
+        wordCount.innerHTML = howManyTokens;
+      }
+      function start() {
+        textArea = document.getElementById("textArea");
+        textField = document.getElementById("textField");
+        button = document.getElementById("submitBtn");
+        wordCount = document.getElementById("wordCount");
+        pwOutPut = document.getElementById("pwOutPut");
+        outputDiv = document.getElementById("outputDiv");
+        username = document.getElementById("username");
+        userNameOutPut = document.getElementById("userNameOutPut");
+        stdID = document.getElementById("stdID");
+        studentID = document.getElementById("studentID");
+        button.addEventListener("click", submitButton);
+        textArea.addEventListener("keypress", keyPressed);
+      }
+
+      window.addEventListener("load", start);
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <form method="GET" action="#">
+        <label for="username"
+          >Username (8 characters min, alphabetical letters only):
+          <input type="text" id="username" minlength="8" />
+          <div id="userNameOutPut" class="failMessage"></div>
+        </label>
+        <br />
+
+        <label
+          >Enter your Student ID (must be 9 digits long):
+          <input type="text" id="stdID" minlength="9" maxlength="9" />
+          <div id="studentID" class="failMessage"></div>
+        </label>
+        <br />
+        <label for="pass"
+          >Password (must be 8 characters min, include atleast one lower & upper
+          case letter and one number ranging from 0-9):
+          <input type="password" id="textField" minlength="8" />
+          <div id="pwOutPut" class="failMessage"></div>
+        </label>
+        <br />
+        <label
+          >Message (25 words max):
+          <br />
+          <br />
+          <textarea id="textArea" rows="13" cols="60"> </textarea>
+        </label>
+        <br />
+        Number of words: <span id="wordCount">0</span>
+        <br />
+        <br />
+        <button type="button" id="submitBtn" value="Submit">
+          Submit
+        </button>
+      </form>
+      <br />
+      <div id="outputDiv" class="SuccessMessage"></div>
+    </div>
+  </body>
+</html>

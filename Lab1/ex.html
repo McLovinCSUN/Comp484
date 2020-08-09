@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: arial, sans-serif;
+      }
+
+      nav {
+        width: 10em;
+        text-align: center;
+        border: 2px solid black;
+      }
+
+      nav ul {
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav:hover ul {
+        display: block;
+      }
+
+      nav ul li {
+        color: black;
+      }
+
+      nav ul li:hover {
+        background-color: red;
+        color: white;
+      }
+
+      .ounce {
+        color: blue;
+      }
+    </style>
+    <script>
+      function buttonClickHandler() {
+        var textFieldStr = theTextField.value;
+        var sawAmp = true;
+        var sawAsterisk = true;
+        var output = "";
+        var ampFoundAt = textFieldStr.indexOf("&");
+        var asteriskFoundAt = textFieldStr.indexOf("*");
+
+        if (ampFoundAt > 0) {
+          sawAmp = false;
+        }
+        if (asteriskFoundAt > 0) {
+          sawAPercent = false;
+        }
+
+        if (sawAmp && sawAsterisk) {
+          output = "valid text!";
+        } else {
+          output = "invalid: you need to enter both a & and a *";
+        }
+        console.log(output);
+        console.log(sawAmp);
+        outputDiv.innerHTML = output;
+      }
+      function start() {
+        document.getElementById(bounce).setAttribute("class", "ounce");
+      }
+
+      window.addEventListener("load", start);
+    </script>
+  </head>
+  <body>
+    <nav>
+      <span id="bounce">Oh my!</span>
+      <ul>
+        <li>Lions</li>
+        <li>Tigers</li>
+        <li>Bears</li>
+        <li>Rabbits</li>
+      </ul>
+    </nav>
+  </body>
+</html>
