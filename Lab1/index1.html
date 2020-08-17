@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="ciewport" content="width=device-width, initial-scale=" />
+    <title>Lab2</title>
+    <script>
+      var loginBtn;
+      var username;
+      var password;
+      var userNameOutPut;
+      var pwOutPut;
+
+      function login() {
+        let userNameStr = username.value;
+        let pwStr = password.value;
+        let userNameValidUpper = false;
+        let userNameValidLower = false;
+        let userNameValidSpChar = false;
+        let userNameValidNum = false;
+        let pwValidNums = false;
+        let pwValidUpperChar = false;
+        let pwValidLowerChar = false;
+        let pwValidSpChar = false;
+        let conditionOneMet = false;
+        let conditionTwoMet = false;
+        let regexUpperChar = /[A-Z]/;
+        let regexLowerChar = /[a-z]/;
+        userNameValidUpper = regexUpperChar.test(userNameStr);
+        userNameValidLower = regexLowerChar.test(userNameStr);
+        userNameValidNum = regexNum.test(userNameStr);
+        userNameValidSpChar = regexSpChar.test(userNameStr);
+
+        if (userNameValidNum) {
+          username = "Invalid Username: No Numbers or special characters.";
+        } else if (usernameValidSpChar) {
+          username = "Invalid username: No numbers or special characters.";
+        } else {
+          username = " ";
+          conditionOneMet = true;
+        }
+        userNameOutPut.innerHTML = username;
+
+        pwValidNums = regexNum.test(pwStr);
+        pwValidUpperChar = regexUpperChar.test(pwStr);
+        pwValidLowerChar = regexLowerChar.test(pwStr);
+        pwValidSpChar = regexSpChar.test(pwStr);
+
+        if (pwValidUpperChar) {
+          password = "Invalid Password: No characters or sepcial characters";
+        } else if (pwValidLowerChar) {
+          password = "Invalid Password: No characters or special characters.";
+        } else if (pwValidSpChar) {
+          password = "Invalid Password: No characters or special charaters.";
+        } else {
+          password = " ";
+          conditionTwoMet = true;
+        }
+        pwOutPut.innerHTML = password;
+
+        if (conditionOneMet && conditionTwoMet) {
+          if (
+            username.value === "adminUser" &&
+            password.value === "867530999"
+          ) {
+            window.open(
+              "https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_redirect_webpage",
+              "_self"
+            );
+          } else {
+            window.open(
+              "https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_redirect_webpage",
+              "_self"
+            );
+          }
+        }
+      }
+
+      function start() {
+        loginBtn = document.getElementById("login");
+        username = document.getElementById("username");
+        userNameOutPut = document.getElementById("userNameOutPut");
+        pwOutPut = document.getElementById("pwOutPut");
+        password = document.getElementById("password");
+        loginBtn.addEventListener("click", login);
+      }
+      window.addEventListener("load", start);
+    </script>
+  </head>
+
+  <body>
+    <div id="container">
+      <h1>Login Page</h1>
+      <form method="GET" actopm="#">
+        <label fpr="username"
+          >User Name (8 characters min, alphabetical letters only):
+          <input type="text" id="username" minlength="8" />
+          <div id="userNameOutPut" class="failMessage"></div>
+        </label>
+        <br />
+        <label>Password (Must be 9 digits long):</label>
+        <input type="text" id="password" monlength="9" maxlength="9" />
+        <div id="pwOutPut" class="failMessage"></div>
+        <br />
+        <button type="button" id="login" value="Submit">Login</button>
+        <button onclick="register()">Register</button>
+      </form>
+    </div>
+    <script>
+      function register() {
+        window.open(
+          "https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_redirect_webpage",
+          "_self"
+        );
+      }
+    </script>
+  </body>
+</html>
