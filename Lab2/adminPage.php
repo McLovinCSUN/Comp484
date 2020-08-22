@@ -19,7 +19,7 @@
      text-align:center;
      width: 30%;
      padding-bottom:30px;
-     dispaly:block;
+     display:block;
      margin: 0 auto;
     }
    </style>
