@@ -15,13 +15,13 @@ The following **required** for basic site functionality is completed:
 * [x] Onced logged in **Should be displayed:
 * [x] welcome message to the user
 * [x] a button that changes the background color of the current page
-* [x](This functionality is largely up to you. You can toggle between multiple different
+*[x](This functionality is largely up to you. You can toggle between multiple different
 colors with each button click if you like.)
 * [x] a logout button or link that takes them back to the login/registration/start page
 
 The following **required** the adminstrator user are implemented:
 
-* [ ] User can **When a user logs in successfully as Administrator, the page they see contains a table listing all
+* [ ]**When a user logs in successfully as Administrator, the page they see contains a table listing all
 the users of the site by username and password, in sorted order by username (alphanumeric
 ascending sorted order)** 
 
